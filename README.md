@@ -1,17 +1,19 @@
-# g_sneaker
+# g_sneaker Internship Project
 
-A new Flutter project.
+## For development
 
-## Getting Started
+```
+$ flutter pub get
+```
 
-This project is a starting point for a Flutter application.
+## For deployment
 
-A few resources to get you started if this is your first Flutter project:
+https://vanlyhai-gsneaker-goldenowl.netlify.app/
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Youtube demo
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# g_sneaker_goldennowl_internship
+https://youtu.be/uJpV4gd4uCQ
+
+```
+
+```
