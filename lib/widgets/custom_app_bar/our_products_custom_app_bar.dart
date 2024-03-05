@@ -23,16 +23,21 @@ class AppBarWidgetState extends State<OurProductsCustomAppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+        backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
         toolbarHeight: 100,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: IconButton(
+              iconSize: 40,
               icon: const Icon(
                 Icons.shopping_bag,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/YourCart');
+              },
             ),
           ),
         ],

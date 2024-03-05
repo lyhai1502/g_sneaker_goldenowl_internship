@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:g_sneaker/models/shoe.dart';
 import 'package:g_sneaker/repositories/our_products_shoes_repository.dart';
 import 'package:g_sneaker/widgets/custom_app_bar/our_products_custom_app_bar.dart';
-import 'package:g_sneaker/widgets/shoe_item_our_products.dart';
+import 'package:g_sneaker/widgets/shoe_item/our_product_shoe_item.dart';
 
 class OurProductsScreen extends StatefulWidget {
   const OurProductsScreen({Key? key}) : super(key: key);
@@ -22,18 +23,39 @@ class _HomeScreenState extends State<OurProductsScreen> {
 
   Future<void> getData() async {
     await ourProductsShoeRepository.readJson();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: OurProductsCustomAppBarWidget(),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              for (var i = 0; i < 10; i++) ShoeItemOurProductsWidget(shoe: ourProductsShoeRepository.ourProductsShoesRepository[i])
-            ],
-          ),
-        ));
+    return Stack(children: [
+      Container(
+        width: double.infinity,
+        height: double.infinity,
+        color: Colors.white,
+      ),
+      Positioned(
+          top: -80,
+          left: -150,
+          child: Container(
+            width: 300,
+            height: 300,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: Color(int.parse('0xFFF6C90E'))),
+          )),
+      Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: OurProductsCustomAppBarWidget(),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                for (Shoe shoe in ourProductsShoeRepository.ourProductsShoes)
+                  OurProductsShoeItemWidget(
+                    shoe: shoe,
+                  )
+              ],
+            ),
+          )),
+    ]);
   }
 }

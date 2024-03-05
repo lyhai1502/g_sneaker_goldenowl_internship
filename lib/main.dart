@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:g_sneaker/repositories/your_cart_shoes_repository.dart';
 import 'package:g_sneaker/screens/our_products.dart';
+import 'package:g_sneaker/screens/your_cart.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,12 +23,22 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        fontFamily: 'Rubik',
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => YourCartShoeRepository()),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          fontFamily: 'Rubik',
+          scaffoldBackgroundColor: Colors.transparent,
+        ),
+        routes: {
+          '/OurProducts': (context) => OurProductsScreen(),
+          '/YourCart': (context) => YourCartScreen(),
+        },
+        home: OurProductsScreen(),
       ),
-      home: OurProductsScreen(),
     );
   }
 }
