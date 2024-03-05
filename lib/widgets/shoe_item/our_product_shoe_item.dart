@@ -3,6 +3,7 @@ import 'package:g_sneaker/constants/custom_colors.dart';
 import 'package:g_sneaker/models/shoe.dart';
 import 'package:g_sneaker/repositories/your_cart_shoes_repository.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OurProductsShoeItemWidget extends StatefulWidget {
   OurProductsShoeItemWidget({Key? key, required this.shoe}) : super(key: key);
