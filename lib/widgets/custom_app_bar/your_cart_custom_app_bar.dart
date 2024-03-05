@@ -31,6 +31,7 @@ class AppBarWidgetState extends State<YourCartCustomAppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+        backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
         toolbarHeight: 100,
         flexibleSpace: Padding(
@@ -51,7 +52,7 @@ class AppBarWidgetState extends State<YourCartCustomAppBarWidget> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 10),
+                    padding: const EdgeInsets.only(right: 25),
                     child: IconButton(
                       iconSize: 30,
                       icon: const Icon(
@@ -71,16 +72,17 @@ class AppBarWidgetState extends State<YourCartCustomAppBarWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      'Your Cart:',
+                      'Your Cart',
                       style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.w900),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: Text('\$${yourCartShoeRepository.totalPrice}',
+                      padding: const EdgeInsets.only(right: 35),
+                      child: Text(
+                          '\$${yourCartShoeRepository.totalPrice.toStringAsFixed(2)}',
                           style: const TextStyle(
                             fontSize: 25,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w900,
                           )),
                     )
                   ],

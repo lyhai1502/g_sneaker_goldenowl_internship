@@ -64,7 +64,7 @@ class AppBarWidgetState extends State<OurProductsCustomAppBarWidget> {
                     child: Text(
                       'Our Products',
                       style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.w900),
                     ),
                   )
                 ],

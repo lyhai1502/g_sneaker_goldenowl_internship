@@ -14,8 +14,6 @@ class OurProductsShoeItemWidget extends StatefulWidget {
 }
 
 class _OurProductsShoeItemWidgetState extends State<OurProductsShoeItemWidget> {
-  bool isAdded = false;
-
   @override
   Widget build(BuildContext context) {
     YourCartShoeRepository yourCartShoeRepository =
@@ -38,7 +36,7 @@ class _OurProductsShoeItemWidgetState extends State<OurProductsShoeItemWidget> {
                 ),
               ),
               Transform.rotate(
-                angle: -15 *
+                angle: -20 *
                     (3.1415926535897932 / 180), // Convert degrees to radians
                 child: Image.network(widget.shoe.image ?? ''),
               ),
@@ -47,12 +45,12 @@ class _OurProductsShoeItemWidgetState extends State<OurProductsShoeItemWidget> {
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Text(widget.shoe.name ?? '',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Text(widget.shoe.description ?? '',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300)),
+                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w300)),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20),
@@ -62,12 +60,11 @@ class _OurProductsShoeItemWidgetState extends State<OurProductsShoeItemWidget> {
               children: [
                 Text('\$${widget.shoe.price.toString()}',
                     style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
-                !isAdded
+                        const TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
+                !widget.shoe.isAdded!
                     ? ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            isAdded = true;
                             yourCartShoeRepository.addShoe(widget.shoe);
                           });
                         },

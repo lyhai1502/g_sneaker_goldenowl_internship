@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:g_sneaker/models/shoe.dart';
 
 class OurProductsShoeRepository extends ChangeNotifier {
-  List<Shoe> _ourProductsShoes = [];
+  final List<Shoe> _ourProductsShoes = [];
 
   List<Shoe> get ourProductsShoes => _ourProductsShoes;
 

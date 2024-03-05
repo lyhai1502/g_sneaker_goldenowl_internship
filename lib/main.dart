@@ -34,10 +34,10 @@ class MyAppState extends State<MyApp> {
           scaffoldBackgroundColor: Colors.transparent,
         ),
         routes: {
-          '/OurProducts': (context) => OurProductsScreen(),
-          '/YourCart': (context) => YourCartScreen(),
+          '/OurProducts': (context) => const OurProductsScreen(),
+          '/YourCart': (context) => const YourCartScreen()
         },
-        home: OurProductsScreen(),
+        home: const OurProductsScreen(),
       ),
     );
   }

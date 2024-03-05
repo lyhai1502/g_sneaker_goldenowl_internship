@@ -5,6 +5,7 @@ class Shoe {
   String? _description;
   double? _price;
   String? _color;
+  bool? _isAdded = false;
 
   Shoe(
       {int? id,
@@ -12,24 +13,28 @@ class Shoe {
       String? name,
       String? description,
       double? price,
-      String? color}) {
+      String? color,
+      bool? isAdded}) {
     if (id != null) {
-      this._id = id;
+      _id = id;
     }
     if (image != null) {
-      this._image = image;
+      _image = image;
     }
     if (name != null) {
-      this._name = name;
+      _name = name;
     }
     if (description != null) {
-      this._description = description;
+      _description = description;
     }
     if (price != null) {
-      this._price = price;
+      _price = price;
     }
     if (color != null) {
-      this._color = color;
+      _color = color;
+    }
+    if (isAdded != null) {
+      _isAdded = isAdded;
     }
   }
 
@@ -45,6 +50,8 @@ class Shoe {
   set price(double? price) => _price = price;
   String? get color => _color;
   set color(String? color) => _color = color;
+  bool? get isAdded => _isAdded;
+  set isAdded(bool? isAdded) => _isAdded = isAdded;
 
   Shoe.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
@@ -57,12 +64,12 @@ class Shoe {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this._id;
-    data['image'] = this._image;
-    data['name'] = this._name;
-    data['description'] = this._description;
-    data['price'] = this._price;
-    data['color'] = this._color;
+    data['id'] = _id;
+    data['image'] = _image;
+    data['name'] = _name;
+    data['description'] = _description;
+    data['price'] = _price;
+    data['color'] = _color;
     return data;
   }
 }

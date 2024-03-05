@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:g_sneaker/models/shoe.dart';
-import 'package:g_sneaker/repositories/our_products_shoes_repository.dart';
 import 'package:g_sneaker/repositories/your_cart_shoes_repository.dart';
-import 'package:g_sneaker/widgets/custom_app_bar/our_products_custom_app_bar.dart';
 import 'package:g_sneaker/widgets/custom_app_bar/your_cart_custom_app_bar.dart';
-import 'package:g_sneaker/widgets/shoe_item/our_product_shoe_item.dart';
 import 'package:g_sneaker/widgets/shoe_item/your_cart_shoe_item.dart';
 import 'package:provider/provider.dart';
 
@@ -29,19 +25,49 @@ class _HomeScreenState extends State<YourCartScreen> {
     yourCartShoeRepository = context.read<YourCartShoeRepository>();
   }
 
+  callback() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: YourCartCustomAppBarWidget(),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              for (Shoe shoe in yourCartShoeRepository.yourCartShoes)
-                YourCartShoeItemWidget(
-                  shoe: shoe,
+    return Stack(children: [
+      Container(
+        width: double.infinity,
+        height: double.infinity,
+        color: Colors.white,
+      ),
+      Positioned(
+          top: -80,
+          left: -150,
+          child: Container(
+            width: 300,
+            height: 300,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: Color(int.parse('0xFFF6C90E'))),
+          )),
+      Scaffold(
+          appBar: YourCartCustomAppBarWidget(),
+          body: yourCartShoeRepository.yourCartShoes.isNotEmpty
+              ? SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      for (var shoe
+                          in yourCartShoeRepository.yourCartShoes.entries)
+                        YourCartShoeItemWidget(
+                            callback: callback,
+                            number: shoe.value,
+                            shoe: shoe.key)
+                    ],
+                  ),
                 )
-            ],
-          ),
-        ));
+              : const Padding(
+                  padding: EdgeInsets.only(left: 32),
+                  child: Text(
+                    'Your cart is empty.',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                )),
+    ]);
   }
 }
