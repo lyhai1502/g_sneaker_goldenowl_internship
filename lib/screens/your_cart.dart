@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:g_sneaker/constants/custom_colors.dart';
 import 'package:g_sneaker/repositories/your_cart_shoes_repository.dart';
 import 'package:g_sneaker/widgets/custom_app_bar/your_cart_custom_app_bar.dart';
 import 'package:g_sneaker/widgets/shoe_item/your_cart_shoe_item.dart';
@@ -35,17 +36,17 @@ class _HomeScreenState extends State<YourCartScreen> {
       Container(
         width: double.infinity,
         height: double.infinity,
-        color: Colors.white,
+        color: CustomColors.white,
       ),
       Positioned(
-          top: -80,
-          left: -150,
-          child: Container(
+        top: -80,
+        left: -150,
+        child: Container(
             width: 300,
             height: 300,
             decoration: BoxDecoration(
-                shape: BoxShape.circle, color: Color(int.parse('0xFFF6C90E'))),
-          )),
+                shape: BoxShape.circle, color: CustomColors.yellow)),
+      ),
       Scaffold(
           appBar: YourCartCustomAppBarWidget(),
           body: yourCartShoeRepository.yourCartShoes.isNotEmpty

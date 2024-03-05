@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:g_sneaker/constants/custom_colors.dart';
 
 class OurProductsCustomAppBarWidget extends StatefulWidget
     implements PreferredSizeWidget {
   OurProductsCustomAppBarWidget({Key? key})
-      : preferredSize = const Size.fromHeight(100.0),
+      : preferredSize = const Size.fromHeight(126.0),
         super(key: key);
   @override
   State<StatefulWidget> createState() {
@@ -31,9 +32,9 @@ class AppBarWidgetState extends State<OurProductsCustomAppBarWidget> {
             padding: const EdgeInsets.only(right: 10),
             child: IconButton(
               iconSize: 40,
-              icon: const Icon(
+              icon: Icon(
                 Icons.shopping_bag,
-                color: Colors.black,
+                color: CustomColors.black,
               ),
               onPressed: () {
                 Navigator.pushNamed(context, '/YourCart');
@@ -63,8 +64,11 @@ class AppBarWidgetState extends State<OurProductsCustomAppBarWidget> {
                     padding: EdgeInsets.only(left: 10),
                     child: Text(
                       'Our Products',
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.w900),
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'Rubik-Bold',
+                        fontWeight: FontWeight.w900,
+                      ),
                     ),
                   )
                 ],

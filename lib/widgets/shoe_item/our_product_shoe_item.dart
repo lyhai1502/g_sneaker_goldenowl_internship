@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:g_sneaker/constants/custom_colors.dart';
 import 'package:g_sneaker/models/shoe.dart';
 import 'package:g_sneaker/repositories/your_cart_shoes_repository.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +25,7 @@ class _OurProductsShoeItemWidgetState extends State<OurProductsShoeItemWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
+            alignment: Alignment.center,
             children: [
               ClipRRect(
                 borderRadius:
@@ -45,12 +47,19 @@ class _OurProductsShoeItemWidgetState extends State<OurProductsShoeItemWidget> {
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Text(widget.shoe.name ?? '',
-                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'Rubik-Bold',
+                  fontWeight: FontWeight.w900,
+                )),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Text(widget.shoe.description ?? '',
-                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w300)),
+                style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w100,
+                    color: CustomColors.gray)),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20),
@@ -58,9 +67,12 @@ class _OurProductsShoeItemWidgetState extends State<OurProductsShoeItemWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('\$${widget.shoe.price.toString()}',
-                    style:
-                        const TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
+                Text('\$${widget.shoe.price?.toStringAsFixed(2).toString()}',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'Rubik-Bold',
+                      fontWeight: FontWeight.w900,
+                    )),
                 !widget.shoe.isAdded!
                     ? ElevatedButton(
                         onPressed: () {
@@ -70,25 +82,26 @@ class _OurProductsShoeItemWidgetState extends State<OurProductsShoeItemWidget> {
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                              Color(int.parse(
-                                  '0xFFF6C90E'))), // Set the background color
+                              CustomColors.yellow), // Set the background color
                         ),
-                        child: const Text(
+                        child: Text(
                           'ADD TO CART',
                           style: TextStyle(
                               fontSize: 15,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.black),
+                              fontFamily: 'Rubik-Bold',
+                              fontWeight: FontWeight.w900,
+                              color: CustomColors.black),
                         ),
                       )
                     : Stack(
+                        alignment: Alignment.center,
                         children: [
                           Container(
                             width: 48,
                             height: 48,
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: Color(int.parse('0xFFF6C90E'))),
+                                color: CustomColors.yellow),
                           ),
                           IconButton(
                             icon: Image.asset(

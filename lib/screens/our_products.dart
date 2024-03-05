@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:g_sneaker/constants/custom_colors.dart';
 import 'package:g_sneaker/models/shoe.dart';
 import 'package:g_sneaker/repositories/our_products_shoes_repository.dart';
 import 'package:g_sneaker/widgets/custom_app_bar/our_products_custom_app_bar.dart';
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<OurProductsScreen> {
       Container(
         width: double.infinity,
         height: double.infinity,
-        color: Colors.white,
+        color: CustomColors.white,
       ),
       Positioned(
           top: -80,
@@ -41,7 +42,7 @@ class _HomeScreenState extends State<OurProductsScreen> {
             width: 300,
             height: 300,
             decoration: BoxDecoration(
-                shape: BoxShape.circle, color: Color(int.parse('0xFFF6C90E'))),
+                shape: BoxShape.circle, color: CustomColors.yellow),
           )),
       Scaffold(
           backgroundColor: Colors.transparent,

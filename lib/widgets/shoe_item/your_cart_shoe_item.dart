@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:g_sneaker/constants/custom_colors.dart';
 import 'package:g_sneaker/models/shoe.dart';
 import 'package:g_sneaker/repositories/your_cart_shoes_repository.dart';
 import 'package:provider/provider.dart';
@@ -66,11 +67,17 @@ class YourCartShoeItemWidgetState extends State<YourCartShoeItemWidget> {
               children: [
                 Text(widget.shoe.name ?? '',
                     style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w700)),
-                Padding(padding: const EdgeInsets.only(top: 10)),
-                Text('\$${widget.shoe.price}',
+                      fontSize: 18,
+                      fontFamily: 'Rubik-Bold',
+                      fontWeight: FontWeight.w800,
+                    )),
+                const Padding(padding: EdgeInsets.only(top: 10)),
+                Text('\$${widget.shoe.price?.toStringAsFixed(2)}',
                     style: const TextStyle(
-                        fontSize: 22, fontWeight: FontWeight.w800)),
+                      fontSize: 22,
+                      fontFamily: 'Rubik-Bold',
+                      fontWeight: FontWeight.w900,
+                    )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -79,13 +86,6 @@ class YourCartShoeItemWidgetState extends State<YourCartShoeItemWidget> {
                         Stack(
                           alignment: Alignment.center,
                           children: [
-                            Container(
-                              width: 30,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color(int.parse('0xF777777'))),
-                            ),
                             Stack(
                               alignment: Alignment.center,
                               children: [
@@ -94,7 +94,7 @@ class YourCartShoeItemWidgetState extends State<YourCartShoeItemWidget> {
                                   height: 30,
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: Color(int.parse('0xF777777'))),
+                                      color: CustomColors.grayLight),
                                 ),
                                 IconButton(
                                   icon: Image.asset(
@@ -127,7 +127,7 @@ class YourCartShoeItemWidgetState extends State<YourCartShoeItemWidget> {
                               height: 30,
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: Color(int.parse('0xF777777'))),
+                                  color: CustomColors.grayLight),
                             ),
                             IconButton(
                               icon: Image.asset(
@@ -154,7 +154,7 @@ class YourCartShoeItemWidgetState extends State<YourCartShoeItemWidget> {
                           height: 30,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Color(int.parse('0xFFF6C90E'))),
+                              color: CustomColors.yellow),
                         ),
                         IconButton(
                           icon: Image.asset(
