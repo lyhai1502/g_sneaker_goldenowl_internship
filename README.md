@@ -10,10 +10,6 @@ $ flutter pub get
 
 https://vanlyhai-gsneaker-goldenowl.netlify.app/
 
-# Youtube demo
+## Youtube demo
 
 https://youtu.be/uJpV4gd4uCQ
-
-```
-
-```
