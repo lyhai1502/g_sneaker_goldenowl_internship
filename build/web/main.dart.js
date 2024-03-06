@@ -62421,7 +62421,7 @@ A.t1.prototype={
 ac(){return new A.BI(B.j)}}
 A.BI.prototype={
 O(a){var s=null,r=A.a([new A.pZ(new A.ox(new A.TC(),s,s,s,A.ar9(),A.apY(),t.cc),s,s,s,s,t.LD)],t.Ds),q=A.acu(s,"Rubik",B.B,s)
-return A.akA(new A.rR(B.pw,A.aC(["/OurProducts",new A.TD(),"/YourCart",new A.TE()],t.N,t.Ab),"Flutter Demo",q,s),r)}}
+return A.akA(new A.rR(B.pw,A.aC(["/OurProducts",new A.TD(),"/YourCart",new A.TE()],t.N,t.Ab),"G Sneaker",q,s),r)}}
 A.TC.prototype={
 $1(a){return new A.fw(A.y(t.ku,t.S),$.aq())},
 $S:385}
