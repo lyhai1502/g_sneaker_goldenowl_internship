@@ -28,7 +28,7 @@ class MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (context) => YourCartShoeRepository()),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'G Sneaker',
         theme: ThemeData(
           fontFamily: 'Rubik',
           scaffoldBackgroundColor: Colors.transparent,
