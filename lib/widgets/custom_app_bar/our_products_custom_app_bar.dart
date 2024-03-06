@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:g_sneaker/constants/custom_colors.dart';
 
+// ignore: must_be_immutable
 class OurProductsCustomAppBarWidget extends StatefulWidget
     implements PreferredSizeWidget {
   OurProductsCustomAppBarWidget({Key? key})

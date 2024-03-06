@@ -3,19 +3,22 @@ import 'package:g_sneaker/constants/custom_colors.dart';
 import 'package:g_sneaker/models/shoe.dart';
 import 'package:g_sneaker/repositories/your_cart_shoes_repository.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+// ignore: must_be_immutable
 class OurProductsShoeItemWidget extends StatefulWidget {
   OurProductsShoeItemWidget({Key? key, required this.shoe}) : super(key: key);
 
   Shoe shoe;
 
   @override
+  // ignore: library_private_types_in_public_api
   _OurProductsShoeItemWidgetState createState() =>
       _OurProductsShoeItemWidgetState();
 }
 
 class _OurProductsShoeItemWidgetState extends State<OurProductsShoeItemWidget> {
+  void saveShoe(YourCartShoeRepository yourCartShoeRepository) async {}
+
   @override
   Widget build(BuildContext context) {
     YourCartShoeRepository yourCartShoeRepository =

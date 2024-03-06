@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:g_sneaker/constants/custom_colors.dart';
+import 'package:g_sneaker/models/shoe.dart';
 import 'package:g_sneaker/repositories/your_cart_shoes_repository.dart';
 import 'package:g_sneaker/widgets/custom_app_bar/your_cart_custom_app_bar.dart';
 import 'package:g_sneaker/widgets/shoe_item/your_cart_shoe_item.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class YourCartScreen extends StatefulWidget {
   const YourCartScreen({Key? key}) : super(key: key);
@@ -20,10 +22,30 @@ class _HomeScreenState extends State<YourCartScreen> {
     // TODO: implement initState
     super.initState();
     getData();
+    getSavedData();
   }
 
   void getData() {
     yourCartShoeRepository = context.read<YourCartShoeRepository>();
+  }
+
+  void getSavedData() async {
+    yourCartShoeRepository.clearShoes();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.getKeys().forEach((key) {
+      Future future = Shoe.fromJsonList();
+      future.then((value) {
+        value.forEach((shoe) {
+          if (shoe.id.toString() == key) {
+            setState(() {
+              shoe.isAdded = true;
+              yourCartShoeRepository.yourCartShoes[shoe] = prefs.getInt(key)!;
+            });
+          }
+        });
+      });
+    });
+    setState(() {});
   }
 
   callback() {

@@ -4,6 +4,7 @@ import 'package:g_sneaker/models/shoe.dart';
 import 'package:g_sneaker/repositories/your_cart_shoes_repository.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class YourCartShoeItemWidget extends StatefulWidget {
   YourCartShoeItemWidget(
       {Key? key,

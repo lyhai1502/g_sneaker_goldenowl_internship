@@ -3,6 +3,7 @@ import 'package:g_sneaker/constants/custom_colors.dart';
 import 'package:g_sneaker/repositories/your_cart_shoes_repository.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class YourCartCustomAppBarWidget extends StatefulWidget
     implements PreferredSizeWidget {
   YourCartCustomAppBarWidget({Key? key})

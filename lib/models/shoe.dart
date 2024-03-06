@@ -1,3 +1,9 @@
+// ignore_for_file: unnecessary_getters_setters
+
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
+
 class Shoe {
   int? _id;
   String? _image;
@@ -63,7 +69,7 @@ class Shoe {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = _id;
     data['image'] = _image;
     data['name'] = _name;
@@ -71,5 +77,16 @@ class Shoe {
     data['price'] = _price;
     data['color'] = _color;
     return data;
+  }
+
+  static Future<List<Shoe>> fromJsonList() async {
+    List<Shoe> shoes = [];
+    final String response =
+        await rootBundle.loadString('lib/assets/data/shoes.json');
+    final data = await json.decode(response);
+    for (var i = 0; i < data['shoes'].length; i++) {
+      shoes.add(Shoe.fromJson(data['shoes'][i]));
+    }
+    return shoes;
   }
 }
