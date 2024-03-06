@@ -27,19 +27,18 @@ class YourCartShoeRepository extends ChangeNotifier {
     if (_yourCartShoes.containsKey(shoe)) {
       if (_yourCartShoes[shoe]! > 1) {
         _yourCartShoes[shoe] = _yourCartShoes[shoe]! - 1;
+
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        yourCartShoes.forEach((shoe, quantity) {
+          if (shoe.id == shoe.id) {
+            prefs.setInt(shoe.id.toString(), quantity - 1);
+          }
+        });
       } else {
-        _yourCartShoes.remove(shoe);
-        shoe.isAdded = false;
+        removeShoe(shoe);
+        // shoe.isAdded = false;
       }
     }
-
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    yourCartShoes.forEach((shoe, quantity) {
-      if (shoe.id == shoe.id) {
-        prefs.setInt(shoe.id.toString(), quantity - 1);
-      }
-    });
-
     notifyListeners();
   }
 

@@ -4,11 +4,13 @@
 
 ```
 $ flutter pub get
+$ flutter run -d chrome
 ```
+Or you can run the project by your simulator
 
 ## For deployment
 
-https://vanlyhai-gsneaker-goldenowl.netlify.app/
+https://vanlyhai-gsneaker-goldenowl-v2.netlify.app/
 
 ## Youtube demo
 
